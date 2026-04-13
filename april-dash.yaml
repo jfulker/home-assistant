@@ -1,4 +1,13 @@
+# ==============================================================================
+# APRIL DASHBOARD CONFIGURATION
+# Main Lovelace dashboard structure, view layouts, and custom button-card templates
+# ==============================================================================
 button_card_templates:
+
+  # ----------------------------------------------------------------------------
+  # TEMPLATES
+  # ----------------------------------------------------------------------------
+  # --- Template: button_toggle_small ---
   button_toggle_small:
     variables:
       name: null
@@ -78,6 +87,7 @@ button_card_templates:
           </ha-icon>
           `;
         ]]]
+  # --- Template: bubble_card_graph ---
   bubble_card_graph:
     show_name: false
     show_state: false
@@ -123,6 +133,7 @@ button_card_templates:
         - border-radius: 25px
         - box-shadow: none
         - background: rgba(255,255,255,0.05)
+  # --- Template: loader ---
   loader:
     custom_fields:
       loader: |
@@ -158,6 +169,7 @@ button_card_templates:
                     ? 'none'
                     : 'invert(1)';
               ]]]
+  # --- Template: tilt ---
   tilt:
     variables:
       tilt_enable: |
@@ -210,6 +222,7 @@ button_card_templates:
               }
           }, 0);
         ]]]
+  # --- Template: settings ---
   settings:
     variables:
       entity_tablet: switch.galaxy_tab_a_screensaver
@@ -229,6 +242,7 @@ button_card_templates:
       translate_playing: Playing
       translate_paused: Paused
       translate_standby: Standby
+  # --- Template: extra_styles ---
   extra_styles:
     extra_styles: |
       [[[
@@ -260,11 +274,9 @@ button_card_templates:
         }
         return `
 
-         /* * * * * * * * * * * * * * * * * *
-          *                                 *
-          *              LIGHT              *
-          *                                 *
-          * * * * * * * * * * * * * * * * * */
+         /* ----------------------------------------------------------------------------
+            LIGHT
+            ---------------------------------------------------------------------------- */
 
           svg {
             --light-color: ${
@@ -288,11 +300,9 @@ button_card_templates:
 
           ${this._config.template.includes('light') ? `
 
-           /* * * * * * * * * * * * * * * * * *
-            *                                 *
-            *          CIRCLE SLIDER          *
-            *                                 *
-            * * * * * * * * * * * * * * * * * */
+           /* ----------------------------------------------------------------------------
+              CIRCLE SLIDER
+              ---------------------------------------------------------------------------- */
 
             #circle_slider {
               opacity: 0;
@@ -361,11 +371,9 @@ button_card_templates:
 
           `:''}
 
-         /* * * * * * * * * * * * * * * * * *
-          *                                 *
-          *              BASE               *
-          *                                 *
-          * * * * * * * * * * * * * * * * * */
+         /* ----------------------------------------------------------------------------
+            BASE
+            ---------------------------------------------------------------------------- */
 
           #container {
             text-align: left !important;
@@ -401,11 +409,9 @@ button_card_templates:
 
           ${variables.tilt_enable === true ? `
 
-           /* * * * * * * * * * * * * * * * * *
-            *                                 *
-            *              TILT               *
-            *                                 *
-            * * * * * * * * * * * * * * * * * */
+           /* ----------------------------------------------------------------------------
+              TILT
+              ---------------------------------------------------------------------------- */
 
               #name, #state {
                 font-size: calc(var(--button-card-font-size) - var(--z-axis-adjustment));
@@ -466,11 +472,9 @@ button_card_templates:
 
           ${this._config.template.includes('conditional_media') ? `
 
-           /* * * * * * * * * * * * * * * * * *
-            *                                 *
-            *              MEDIA              *
-            *                                 *
-            * * * * * * * * * * * * * * * * * */
+           /* ----------------------------------------------------------------------------
+              MEDIA
+              ---------------------------------------------------------------------------- */
 
             :host {
               --blur-intensity: blur(4.5px) brightness(0.8);
@@ -508,11 +512,9 @@ button_card_templates:
 
           ${this._config.template.includes('footer') ? `
 
-           /* * * * * * * * * * * * * * * * * *
-            *                                 *
-            *             FOOTER              *
-            *                                 *
-            * * * * * * * * * * * * * * * * * */
+           /* ----------------------------------------------------------------------------
+              FOOTER
+              ---------------------------------------------------------------------------- */
 
             /* magnification */
             :host {
@@ -610,6 +612,7 @@ button_card_templates:
           `:''}
         `;
       ]]]
+  # --- Template: card_light ---
   card_light:
     show_state: true
     state_display: null
@@ -649,6 +652,7 @@ button_card_templates:
             - filter: grayscale(100%)
     hold_action:
       action: more-info
+  # --- Template: light ---
   light:
     template:
       - base
@@ -671,6 +675,7 @@ button_card_templates:
           }
         ]]]
       circle_input_unit: '%'
+  # --- Template: base ---
   base:
     template:
       - settings
@@ -835,6 +840,7 @@ button_card_templates:
                   ? 'rgba(255, 255, 255, 0.85)'
                   : 'var(--tile-background-color)';
             ]]]
+  # --- Template: circle ---
   circle:
     styles:
       card:
@@ -868,11 +874,9 @@ button_card_templates:
                   input = variables.circle_input || ' ',
                   unit = variables.circle_input_unit || ' ';
 
-             /* * * * * * * * * * * * * * * * * *
-              *                                 *
-              *             CIRCLE              *
-              *                                 *
-              * * * * * * * * * * * * * * * * * */
+             /* ----------------------------------------------------------------------------
+                CIRCLE
+                ---------------------------------------------------------------------------- */
 
               let circle = (state, input, unit) => {
                   return `
@@ -911,11 +915,9 @@ button_card_templates:
                   `;
               }
 
-             /* * * * * * * * * * * * * * * * * *
-              *                                 *
-              *              LIGHT              *
-              *                                 *
-              * * * * * * * * * * * * * * * * * */
+             /* ----------------------------------------------------------------------------
+                LIGHT
+                ---------------------------------------------------------------------------- */
 
               if (domain === 'light' && state) {
 
@@ -988,11 +990,9 @@ button_card_templates:
                   return circle(state, input, unit);
               }
 
-             /* * * * * * * * * * * * * * * * * *
-              *                                 *
-              *             PERSON              *
-              *                                 *
-              * * * * * * * * * * * * * * * * * */
+             /* ----------------------------------------------------------------------------
+                PERSON
+                ---------------------------------------------------------------------------- */
 
               else if (domain === 'person') {
                   let time = c => {
@@ -1013,37 +1013,32 @@ button_card_templates:
                   return circle(state, input, unit);
               }
 
-             /* * * * * * * * * * * * * * * * * *
-              *                                 *
-              *             CLIMATE             *
-              *                                 *
-              * * * * * * * * * * * * * * * * * */
+             /* ----------------------------------------------------------------------------
+                CLIMATE
+                ---------------------------------------------------------------------------- */
 
               else if (domain === 'fan') {
                   return circle(state, input, unit);
               }
 
-             /* * * * * * * * * * * * * * * * * *
-              *                                 *
-              *              COVER              *
-              *                                 *
-              * * * * * * * * * * * * * * * * * */
+             /* ----------------------------------------------------------------------------
+                COVER
+                ---------------------------------------------------------------------------- */
 
               else if (domain === 'cover') {
                   return circle(state, input, unit);
               }
               
-             /* * * * * * * * * * * * * * * * * *
-              *                                 *
-              *              OTHER              *
-              *                                 *
-              * * * * * * * * * * * * * * * * * */
+             /* ----------------------------------------------------------------------------
+                OTHER
+                ---------------------------------------------------------------------------- */
 
               else if (variables.state_on) {
                   return circle(state, input, unit);
               }
           }
         ]]]
+  # --- Template: footer ---
   footer:
     template:
       - settings
@@ -1116,7 +1111,14 @@ button_card_templates:
       action: block
     double_tap_action:
       action: block
+# ==============================================================================
+# DASHBOARD VIEWS
+# Structure and layout of the actual pages (Home, Test, etc.)
+# ==============================================================================
 views:
+  # ----------------------------------------------------------------------------
+  # VIEW: Home
+  # ----------------------------------------------------------------------------
   - title: Home
     layout:
       margin: -2
@@ -3046,6 +3048,9 @@ views:
           grid-area: media
     theme: Frosted Glass Dashboard Theme
 
+  # ----------------------------------------------------------------------------
+  # VIEW: Test
+  # ----------------------------------------------------------------------------
   - title: Test
     path: test
     icon: mdi:chandelier

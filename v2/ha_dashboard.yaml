@@ -1,0 +1,1660 @@
+# ══════════════════════════════════════════════════════════════════
+# HA Dashboard — Multi-View  v9
+# Target:  iPad Pro 11" landscape  (1194 × 834 px)
+# Custom cards required:
+#   custom:layout-card   custom:button-card   card-mod
+#
+# ⚠️  NAVIGATION: If sidebar links don't work, find your dashboard
+#     URL slug in Settings → Dashboards and replace 'lovelace' in
+#     every navigation_path below. e.g. /my-dashboard/home
+#
+# Views:
+#   /lovelace/home         → Home (overview)
+#   /lovelace/front-yard   → Front Yard + Front Camera
+#   /lovelace/kitchen      → Kitchen + Appliances
+#   /lovelace/living-room  → Living Room + Media
+#   /lovelace/back-yard    → Back Yard + Back Camera
+#
+# Measurements:
+#   Viewport:     1194 × 834 px
+#   Sidebar:      210px
+#   Footer:       140px
+#   Content area: 984 × 694 px
+#   Card width:   458px each  (984 - 24left - 20right - 24gap) / 2
+#   Card height:  598px       (694 - 48top - 48bottom)
+#   Tile area:    498px       (598 - 56 padding - 44 title)
+#   Tile rows:    239px each  (498 - 20gap) / 2
+# ══════════════════════════════════════════════════════════════════
+
+views:
+
+# ════════════════════════════════════════════════════════════════
+# VIEW 1 — HOME
+# ════════════════════════════════════════════════════════════════
+  - title: Home
+    path: home
+    panel: true
+    background: "#e4e7e9"
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 210px 1fr
+          grid-template-rows: 694px 140px
+          height: 834px
+          width: 1194px
+          margin: 0
+          padding: 0
+          overflow: hidden
+        card_mod:
+          style: |
+            :host { background: #e4e7e9 !important; }
+        cards:
+
+          # Sidebar — Home active
+          - type: vertical-stack
+            view_layout:
+              grid-column: 1
+              grid-row: 1 / 3
+            card_mod:
+              style: |
+                :host {
+                  padding: 32px 20px 28px 28px;
+                  display: flex;
+                  flex-direction: column;
+                  height: 834px;
+                  box-sizing: border-box;
+                  background: transparent;
+                }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                show_label: true
+                label: >
+                  [[[
+                    var d = new Date();
+                    return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+                  ]]]
+                styles:
+                  card:
+                    - background: transparent
+                    - box-shadow: none
+                    - padding: 0
+                    - margin-bottom: 4px
+                    - justify-content: flex-start
+                  label:
+                    - font-size: 72px
+                    - font-weight: 100
+                    - color: "#7A8394"
+                    - line-height: 1
+                    - font-family: Roboto, sans-serif
+                    - letter-spacing: "-2px"
+              - type: markdown
+                content: "{{ now().strftime('%a %b %-d') }}"
+                card_mod:
+                  style: |
+                    ha-card { background: transparent; box-shadow: none; padding: 0; margin-bottom: 32px; }
+                    ha-markdown-element p { color: #7A8394; font-size: 13px; font-weight: 400; margin: 0; }
+              - type: custom:button-card
+                name: Home
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/home
+                styles:
+                  card:
+                    - background: transparent
+                    - box-shadow: none
+                    - border-left: 3px solid "#2B8FE0"
+                    - border-radius: 0
+                    - padding: 12px 12px
+                    - justify-content: flex-start
+                    - margin-bottom: 2px
+                  name:
+                    - font-size: 20px
+                    - font-weight: 400
+                    - color: "#2B8FE0"
+                    - text-align: left
+              - type: custom:button-card
+                name: Front Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/front-yard
+                styles:
+                  card:
+                    - background: transparent
+                    - box-shadow: none
+                    - border-left: 3px solid transparent
+                    - border-radius: 0
+                    - padding: 12px 12px
+                    - justify-content: flex-start
+                    - margin-bottom: 2px
+                  name:
+                    - font-size: 20px
+                    - font-weight: 400
+                    - color: "#7A8394"
+                    - text-align: left
+              - type: custom:button-card
+                name: Kitchen
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/kitchen
+                styles:
+                  card:
+                    - background: transparent
+                    - box-shadow: none
+                    - border-left: 3px solid transparent
+                    - border-radius: 0
+                    - padding: 12px 12px
+                    - justify-content: flex-start
+                    - margin-bottom: 2px
+                  name:
+                    - font-size: 20px
+                    - font-weight: 400
+                    - color: "#7A8394"
+                    - text-align: left
+              - type: custom:button-card
+                name: Living Room
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/living-room
+                styles:
+                  card:
+                    - background: transparent
+                    - box-shadow: none
+                    - border-left: 3px solid transparent
+                    - border-radius: 0
+                    - padding: 12px 12px
+                    - justify-content: flex-start
+                    - margin-bottom: 2px
+                  name:
+                    - font-size: 20px
+                    - font-weight: 400
+                    - color: "#7A8394"
+                    - text-align: left
+              - type: custom:button-card
+                name: Back Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/back-yard
+                styles:
+                  card:
+                    - background: transparent
+                    - box-shadow: none
+                    - border-left: 3px solid transparent
+                    - border-radius: 0
+                    - padding: 12px 12px
+                    - justify-content: flex-start
+                    - margin-bottom: 0
+                  name:
+                    - font-size: 20px
+                    - font-weight: 400
+                    - color: "#7A8394"
+                    - text-align: left
+              - type: custom:button-card
+                entity: weather.home
+                show_name: false
+                show_icon: true
+                show_state: true
+                styles:
+                  card:
+                    - background: transparent
+                    - box-shadow: none
+                    - padding: 0
+                    - margin-top: auto
+                    - justify-content: flex-start
+                    - gap: 10px
+                    - flex-direction: row
+                  icon:
+                    - color: "#E8793A"
+                    - width: 26px
+                  state:
+                    - font-size: 15px
+                    - font-weight: 600
+                    - color: "#7A8394"
+
+          # Main Content — Home
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 1
+            layout:
+              grid-template-columns: 458px 458px
+              grid-template-rows: 598px
+              gap: 24px
+            card_mod:
+              style: |
+                :host { padding: 48px 20px 48px 24px; box-sizing: border-box; height: 694px; }
+            cards:
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important; min-width: 458px; max-width: 458px;
+                      height: 598px; background: rgba(255,255,255,0.85);
+                      border-radius: 18px;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06);
+                      padding: 28px; box-sizing: border-box; overflow: hidden;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Home"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    show_name: false
+                    show_icon: false
+                    styles:
+                      card: [background: transparent, box-shadow: none, padding: 0, height: 498px, display: block]
+                      custom_fields:
+                        tiles: [display: block, width: 100%, height: 498px]
+                    custom_fields:
+                      tiles: |
+                        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:239px 239px;gap:20px;width:100%;height:498px;box-sizing:border-box;">
+                          <div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">All Lights</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">3 on</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb-group" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Security</div><div style="font-size:13px;color:#B8BEC9;">Disarmed</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:shield-home" style="color:#B8BEC9;--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Indoor Temp</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">72°F</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:rgba(255,255,255,0.9);--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                        </div>
+
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important; min-width: 458px; max-width: 458px;
+                      height: 598px; background: rgba(255,255,255,0.85);
+                      border-radius: 18px;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06);
+                      padding: 28px; box-sizing: border-box; overflow: hidden;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Cameras"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    name: Front Door
+                    icon: mdi:cctv
+                    card_mod:
+                      style: |
+                        :host { height: 241px; margin-bottom: 16px; }
+                    styles:
+                      card: [background: "#D1D5DB", border-radius: 12px, height: 100%]
+                      icon: [color: "#9CA3AF"]
+                      name: [color: "#9CA3AF"]
+                  - type: custom:button-card
+                    name: Backyard
+                    icon: mdi:cctv
+                    card_mod:
+                      style: |
+                        :host { height: 241px; }
+                    styles:
+                      card: [background: "#D1D5DB", border-radius: 12px, height: 100%]
+                      icon: [color: "#9CA3AF"]
+                      name: [color: "#9CA3AF"]
+
+          # Footer
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 2
+            layout:
+              grid-template-columns: repeat(5, auto) 1fr
+              grid-template-rows: 140px
+              align-items: center
+              justify-items: start
+              justify-content: start
+              gap: 12px
+            card_mod:
+              style: |
+                :host {
+                  background: #C8D2DA !important;
+                  padding: 0 24px;
+                  box-sizing: border-box;
+                }
+                ha-card {
+                  background: #C8D2DA !important;
+                }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#9B59B6;display:flex;align-items:center;justify-content:center;">
+                        <ha-icon icon="mdi:layers-triple" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon>
+                      </div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Scenes</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;">
+                        <ha-icon icon="mdi:lightbulb" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon>
+                      </div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Lights</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#718096;display:flex;align-items:center;justify-content:center;">
+                        <ha-icon icon="mdi:cog" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon>
+                      </div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">System</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#E8793A;display:flex;align-items:center;justify-content:center;">
+                        <ha-icon icon="mdi:thermometer" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon>
+                      </div>
+                      <div>
+                        <div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">72°F</div>
+                        <div style="font-size:12px;color:#B8BEC9;line-height:1.2;">Heat to 70°</div>
+                      </div>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;">
+                        <ha-icon icon="mdi:lock" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon>
+                      </div>
+                      <div>
+                        <div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">Locked</div>
+                        <div style="font-size:12px;color:#B8BEC9;line-height:1.2;">All Doors</div>
+                      </div>
+                    </div>
+              - type: custom:button-card
+                styles:
+                  card: [background: transparent, box-shadow: none]
+
+
+# ════════════════════════════════════════════════════════════════
+# VIEW 2 — FRONT YARD
+# ════════════════════════════════════════════════════════════════
+  - title: Front Yard
+    path: front-yard
+    panel: true
+    background: "#e4e7e9"
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 210px 1fr
+          grid-template-rows: 694px 140px
+          height: 834px
+          width: 1194px
+          margin: 0
+          padding: 0
+          overflow: hidden
+        card_mod:
+          style: |
+            :host { background: #e4e7e9 !important; }
+        cards:
+
+          # Sidebar — Front Yard active
+          - type: vertical-stack
+            view_layout:
+              grid-column: 1
+              grid-row: 1 / 3
+            card_mod:
+              style: |
+                :host { padding: 32px 20px 28px 28px; display: flex; flex-direction: column; height: 834px; box-sizing: border-box; background: transparent; }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                show_label: true
+                label: >
+                  [[[
+                    var d = new Date();
+                    return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+                  ]]]
+                styles:
+                  card: [background: transparent, box-shadow: none, padding: 0, margin-bottom: 4px, justify-content: flex-start]
+                  label: [font-size: 72px, font-weight: 100, color: "#7A8394", line-height: 1, font-family: "Roboto, sans-serif", letter-spacing: "-2px"]
+              - type: markdown
+                content: "{{ now().strftime('%a %b %-d') }}"
+                card_mod:
+                  style: |
+                    ha-card { background: transparent; box-shadow: none; padding: 0; margin-bottom: 32px; }
+                    ha-markdown-element p { color: #7A8394; font-size: 13px; font-weight: 400; margin: 0; }
+              - type: custom:button-card
+                name: Home
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/home
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Front Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/front-yard
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid #2B8FE0", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#2B8FE0", text-align: left]
+              - type: custom:button-card
+                name: Kitchen
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/kitchen
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Living Room
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/living-room
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Back Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/back-yard
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 0]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                entity: weather.home
+                show_name: false
+                show_icon: true
+                show_state: true
+                styles:
+                  card: [background: transparent, box-shadow: none, padding: 0, margin-top: auto, justify-content: flex-start, gap: 10px, flex-direction: row]
+                  icon: [color: "#E8793A", width: 26px]
+                  state: [font-size: 15px, font-weight: 600, color: "#7A8394"]
+
+          # Main Content — Front Yard
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 1
+            layout:
+              grid-template-columns: 458px 458px
+              grid-template-rows: 598px
+              gap: 24px
+            card_mod:
+              style: |
+                :host { padding: 48px 20px 48px 24px; box-sizing: border-box; height: 694px; }
+            cards:
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important;
+                      min-width: 458px;
+                      max-width: 458px;
+                      height: 598px !important;
+                      display: block;
+                    }
+                    div#root {
+                      background: rgba(255,255,255,0.97) !important;
+                      border-radius: 18px !important;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06) !important;
+                      padding: 28px !important;
+                      box-sizing: border-box !important;
+                      overflow: hidden !important;
+                      height: 598px !important;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Front Yard"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    show_name: false
+                    show_icon: false
+                    styles:
+                      card: [background: transparent, box-shadow: none, padding: 0, height: 498px, display: block]
+                      custom_fields:
+                        tiles: [display: block, width: 100%, height: 498px]
+                    custom_fields:
+                      tiles: |
+                        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:239px 239px;gap:20px;width:100%;height:498px;box-sizing:border-box;">
+                          <div style="grid-row:1/3;background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Porch Light</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:outdoor-lamp" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Driveway</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:car-light-dimmed" style="color:#B8BEC9;--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Gate</div><div style="font-size:13px;color:#B8BEC9;">Closed</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:gate" style="color:#B8BEC9;--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                        </div>
+
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important;
+                      min-width: 458px;
+                      max-width: 458px;
+                      height: 598px !important;
+                      display: block;
+                    }
+                    div#root {
+                      background: rgba(255,255,255,0.97) !important;
+                      border-radius: 18px !important;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06) !important;
+                      padding: 28px !important;
+                      box-sizing: border-box !important;
+                      overflow: hidden !important;
+                      height: 598px !important;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Front Camera"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    name: Front Door
+                    icon: mdi:cctv
+                    card_mod:
+                      style: |
+                        :host { height: 498px; }
+                    styles:
+                      card: [background: "#D1D5DB", border-radius: 12px, height: 100%]
+                      icon: [color: "#9CA3AF", width: 48px]
+                      name: [color: "#9CA3AF"]
+
+          # Footer
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 2
+            layout:
+              grid-template-columns: repeat(5, auto) 1fr
+              grid-template-rows: 140px
+              align-items: center
+              justify-items: start
+              justify-content: start
+              gap: 12px
+            card_mod:
+              style: |
+                :host {
+                  padding: 0 24px;
+                  box-sizing: border-box;
+                  display: block;
+                  height: 140px;
+                }
+                div#root {
+                  background: #B8C4CC !important;
+                  box-shadow: none !important;
+                  border-radius: 0 !important;
+                  height: 140px;
+                  display: grid;
+                  align-items: center;
+                }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#9B59B6;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:layers-triple" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Scenes</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lightbulb" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Lights</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#718096;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:cog" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">System</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#E8793A;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:thermometer" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <div><div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">72°F</div><div style="font-size:12px;color:#B8BEC9;line-height:1.2;">Heat to 70°</div></div>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lock" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <div><div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">Locked</div><div style="font-size:12px;color:#B8BEC9;line-height:1.2;">All Doors</div></div>
+                    </div>
+              - type: custom:button-card
+                styles:
+                  card: [background: transparent, box-shadow: none]
+
+
+# ════════════════════════════════════════════════════════════════
+# VIEW 3 — KITCHEN
+# ════════════════════════════════════════════════════════════════
+  - title: Kitchen
+    path: kitchen
+    panel: true
+    background: "#e4e7e9"
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 210px 1fr
+          grid-template-rows: 694px 140px
+          height: 834px
+          width: 1194px
+          margin: 0
+          padding: 0
+          overflow: hidden
+        card_mod:
+          style: |
+            :host { background: #e4e7e9 !important; }
+        cards:
+
+          # Sidebar — Kitchen active
+          - type: vertical-stack
+            view_layout:
+              grid-column: 1
+              grid-row: 1 / 3
+            card_mod:
+              style: |
+                :host { padding: 32px 20px 28px 28px; display: flex; flex-direction: column; height: 834px; box-sizing: border-box; background: transparent; }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                show_label: true
+                label: >
+                  [[[
+                    var d = new Date();
+                    return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+                  ]]]
+                styles:
+                  card: [background: transparent, box-shadow: none, padding: 0, margin-bottom: 4px, justify-content: flex-start]
+                  label: [font-size: 72px, font-weight: 100, color: "#7A8394", line-height: 1, font-family: "Roboto, sans-serif", letter-spacing: "-2px"]
+              - type: markdown
+                content: "{{ now().strftime('%a %b %-d') }}"
+                card_mod:
+                  style: |
+                    ha-card { background: transparent; box-shadow: none; padding: 0; margin-bottom: 32px; }
+                    ha-markdown-element p { color: #7A8394; font-size: 13px; font-weight: 400; margin: 0; }
+              - type: custom:button-card
+                name: Home
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/home
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Front Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/front-yard
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Kitchen
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/kitchen
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid #2B8FE0", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#2B8FE0", text-align: left]
+              - type: custom:button-card
+                name: Living Room
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/living-room
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Back Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/back-yard
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 0]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                entity: weather.home
+                show_name: false
+                show_icon: true
+                show_state: true
+                styles:
+                  card: [background: transparent, box-shadow: none, padding: 0, margin-top: auto, justify-content: flex-start, gap: 10px, flex-direction: row]
+                  icon: [color: "#E8793A", width: 26px]
+                  state: [font-size: 15px, font-weight: 600, color: "#7A8394"]
+
+          # Main Content — Kitchen
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 1
+            layout:
+              grid-template-columns: 458px 458px
+              grid-template-rows: 598px
+              gap: 24px
+            card_mod:
+              style: |
+                :host { padding: 48px 20px 48px 24px; box-sizing: border-box; height: 694px; }
+            cards:
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important;
+                      min-width: 458px;
+                      max-width: 458px;
+                      height: 598px !important;
+                      display: block;
+                    }
+                    div#root {
+                      background: rgba(255,255,255,0.97) !important;
+                      border-radius: 18px !important;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06) !important;
+                      padding: 28px !important;
+                      box-sizing: border-box !important;
+                      overflow: hidden !important;
+                      height: 598px !important;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Kitchen"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    show_name: false
+                    show_icon: false
+                    styles:
+                      card: [background: transparent, box-shadow: none, padding: 0, height: 498px, display: block]
+                      custom_fields:
+                        tiles: [display: block, width: 100%, height: 498px]
+                    custom_fields:
+                      tiles: |
+                        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:239px 239px;gap:20px;width:100%;height:498px;box-sizing:border-box;">
+                          <div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Main Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Under Cabinet</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:led-strip-variant" style="color:#B8BEC9;--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Exhaust Fan</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:fan" style="color:#B8BEC9;--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                        </div>
+
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important;
+                      min-width: 458px;
+                      max-width: 458px;
+                      height: 598px !important;
+                      display: block;
+                    }
+                    div#root {
+                      background: rgba(255,255,255,0.97) !important;
+                      border-radius: 18px !important;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06) !important;
+                      padding: 28px !important;
+                      box-sizing: border-box !important;
+                      overflow: hidden !important;
+                      height: 598px !important;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Appliances"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    show_name: false
+                    show_icon: false
+                    styles:
+                      card: [background: transparent, box-shadow: none, padding: 0, height: 498px, display: block]
+                      custom_fields:
+                        tiles: [display: block, width: 100%, height: 498px]
+                    custom_fields:
+                      tiles: |
+                        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:239px 239px;gap:20px;width:100%;height:498px;box-sizing:border-box;">
+                          <div style="grid-row:1/3;background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Coffee Maker</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">Brewing</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:coffee-maker" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Dishwasher</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:dishwasher" style="color:#B8BEC9;--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Oven</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:stove" style="color:#B8BEC9;--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                        </div>
+
+          # Footer
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 2
+            layout:
+              grid-template-columns: repeat(5, auto) 1fr
+              grid-template-rows: 140px
+              align-items: center
+              justify-items: start
+              justify-content: start
+              gap: 12px
+            card_mod:
+              style: |
+                :host {
+                  padding: 0 24px;
+                  box-sizing: border-box;
+                  display: block;
+                  height: 140px;
+                }
+                div#root {
+                  background: #B8C4CC !important;
+                  box-shadow: none !important;
+                  border-radius: 0 !important;
+                  height: 140px;
+                  display: grid;
+                  align-items: center;
+                }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#9B59B6;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:layers-triple" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Scenes</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lightbulb" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Lights</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#718096;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:cog" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">System</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#E8793A;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:thermometer" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <div><div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">72°F</div><div style="font-size:12px;color:#B8BEC9;line-height:1.2;">Heat to 70°</div></div>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lock" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <div><div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">Locked</div><div style="font-size:12px;color:#B8BEC9;line-height:1.2;">All Doors</div></div>
+                    </div>
+              - type: custom:button-card
+                styles:
+                  card: [background: transparent, box-shadow: none]
+
+
+# ════════════════════════════════════════════════════════════════
+# VIEW 4 — LIVING ROOM
+# ════════════════════════════════════════════════════════════════
+  - title: Living Room
+    path: living-room
+    panel: true
+    background: "#e4e7e9"
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 210px 1fr
+          grid-template-rows: 694px 140px
+          height: 834px
+          width: 1194px
+          margin: 0
+          padding: 0
+          overflow: hidden
+        card_mod:
+          style: |
+            :host { background: #e4e7e9 !important; }
+        cards:
+
+          # Sidebar — Living Room active
+          - type: vertical-stack
+            view_layout:
+              grid-column: 1
+              grid-row: 1 / 3
+            card_mod:
+              style: |
+                :host { padding: 32px 20px 28px 28px; display: flex; flex-direction: column; height: 834px; box-sizing: border-box; background: transparent; }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                show_label: true
+                label: >
+                  [[[
+                    var d = new Date();
+                    return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+                  ]]]
+                styles:
+                  card: [background: transparent, box-shadow: none, padding: 0, margin-bottom: 4px, justify-content: flex-start]
+                  label: [font-size: 72px, font-weight: 100, color: "#7A8394", line-height: 1, font-family: "Roboto, sans-serif", letter-spacing: "-2px"]
+              - type: markdown
+                content: "{{ now().strftime('%a %b %-d') }}"
+                card_mod:
+                  style: |
+                    ha-card { background: transparent; box-shadow: none; padding: 0; margin-bottom: 32px; }
+                    ha-markdown-element p { color: #7A8394; font-size: 13px; font-weight: 400; margin: 0; }
+              - type: custom:button-card
+                name: Home
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/home
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Front Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/front-yard
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Kitchen
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/kitchen
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Living Room
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/living-room
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid #2B8FE0", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#2B8FE0", text-align: left]
+              - type: custom:button-card
+                name: Back Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/back-yard
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 0]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                entity: weather.home
+                show_name: false
+                show_icon: true
+                show_state: true
+                styles:
+                  card: [background: transparent, box-shadow: none, padding: 0, margin-top: auto, justify-content: flex-start, gap: 10px, flex-direction: row]
+                  icon: [color: "#E8793A", width: 26px]
+                  state: [font-size: 15px, font-weight: 600, color: "#7A8394"]
+
+          # Main Content — Living Room
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 1
+            layout:
+              grid-template-columns: 458px 458px
+              grid-template-rows: 598px
+              gap: 24px
+            card_mod:
+              style: |
+                :host { padding: 48px 20px 48px 24px; box-sizing: border-box; height: 694px; }
+            cards:
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important;
+                      min-width: 458px;
+                      max-width: 458px;
+                      height: 598px !important;
+                      display: block;
+                    }
+                    div#root {
+                      background: rgba(255,255,255,0.97) !important;
+                      border-radius: 18px !important;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06) !important;
+                      padding: 28px !important;
+                      box-sizing: border-box !important;
+                      overflow: hidden !important;
+                      height: 598px !important;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Living Room"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    show_name: false
+                    show_icon: false
+                    styles:
+                      card: [background: transparent, box-shadow: none, padding: 0, height: 498px, display: block]
+                      custom_fields:
+                        tiles: [display: block, width: 100%, height: 498px]
+                    custom_fields:
+                      tiles: |
+                        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:239px 239px;gap:20px;width:100%;height:498px;box-sizing:border-box;">
+                          <div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Main Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Ceiling Fan</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:fan" style="color:#B8BEC9;--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Reading Lamp</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:floor-lamp" style="color:rgba(255,255,255,0.9);--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                        </div>
+
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important;
+                      min-width: 458px;
+                      max-width: 458px;
+                      height: 598px !important;
+                      display: block;
+                    }
+                    div#root {
+                      background: rgba(255,255,255,0.97) !important;
+                      border-radius: 18px !important;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06) !important;
+                      padding: 28px !important;
+                      box-sizing: border-box !important;
+                      overflow: hidden !important;
+                      height: 598px !important;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Media"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    name: Sonos — Living Room
+                    icon: mdi:speaker
+                    card_mod:
+                      style: |
+                        :host { height: 498px; }
+                    styles:
+                      card: [background: "#E8EAED", border-radius: 14px, height: 100%]
+                      icon: [color: "#B8BEC9", width: 48px]
+                      name: [color: "#B8BEC9", font-size: 15px]
+
+          # Footer
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 2
+            layout:
+              grid-template-columns: repeat(5, auto) 1fr
+              grid-template-rows: 140px
+              align-items: center
+              justify-items: start
+              justify-content: start
+              gap: 12px
+            card_mod:
+              style: |
+                :host {
+                  padding: 0 24px;
+                  box-sizing: border-box;
+                  display: block;
+                  height: 140px;
+                }
+                div#root {
+                  background: #B8C4CC !important;
+                  box-shadow: none !important;
+                  border-radius: 0 !important;
+                  height: 140px;
+                  display: grid;
+                  align-items: center;
+                }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#9B59B6;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:layers-triple" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Scenes</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lightbulb" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Lights</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#718096;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:cog" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">System</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#E8793A;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:thermometer" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <div><div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">72°F</div><div style="font-size:12px;color:#B8BEC9;line-height:1.2;">Heat to 70°</div></div>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lock" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <div><div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">Locked</div><div style="font-size:12px;color:#B8BEC9;line-height:1.2;">All Doors</div></div>
+                    </div>
+              - type: custom:button-card
+                styles:
+                  card: [background: transparent, box-shadow: none]
+
+
+# ════════════════════════════════════════════════════════════════
+# VIEW 5 — BACK YARD
+# ════════════════════════════════════════════════════════════════
+  - title: Back Yard
+    path: back-yard
+    panel: true
+    background: "#e4e7e9"
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: 210px 1fr
+          grid-template-rows: 694px 140px
+          height: 834px
+          width: 1194px
+          margin: 0
+          padding: 0
+          overflow: hidden
+        card_mod:
+          style: |
+            :host { background: #e4e7e9 !important; }
+        cards:
+
+          # Sidebar — Back Yard active
+          - type: vertical-stack
+            view_layout:
+              grid-column: 1
+              grid-row: 1 / 3
+            card_mod:
+              style: |
+                :host { padding: 32px 20px 28px 28px; display: flex; flex-direction: column; height: 834px; box-sizing: border-box; background: transparent; }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                show_label: true
+                label: >
+                  [[[
+                    var d = new Date();
+                    return d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+                  ]]]
+                styles:
+                  card: [background: transparent, box-shadow: none, padding: 0, margin-bottom: 4px, justify-content: flex-start]
+                  label: [font-size: 72px, font-weight: 100, color: "#7A8394", line-height: 1, font-family: "Roboto, sans-serif", letter-spacing: "-2px"]
+              - type: markdown
+                content: "{{ now().strftime('%a %b %-d') }}"
+                card_mod:
+                  style: |
+                    ha-card { background: transparent; box-shadow: none; padding: 0; margin-bottom: 32px; }
+                    ha-markdown-element p { color: #7A8394; font-size: 13px; font-weight: 400; margin: 0; }
+              - type: custom:button-card
+                name: Home
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/home
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Front Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/front-yard
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Kitchen
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/kitchen
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Living Room
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/living-room
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid transparent", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 2px]
+                  name: [font-size: 20px, font-weight: 400, color: "#7A8394", text-align: left]
+              - type: custom:button-card
+                name: Back Yard
+                show_icon: false
+                tap_action:
+                  action: navigate
+                  navigation_path: /dashboard-home/back-yard
+                styles:
+                  card: [background: transparent, box-shadow: none, border-left: "3px solid #2B8FE0", border-radius: 0, padding: "12px 12px", justify-content: flex-start, margin-bottom: 0]
+                  name: [font-size: 20px, font-weight: 400, color: "#2B8FE0", text-align: left]
+              - type: custom:button-card
+                entity: weather.home
+                show_name: false
+                show_icon: true
+                show_state: true
+                styles:
+                  card: [background: transparent, box-shadow: none, padding: 0, margin-top: auto, justify-content: flex-start, gap: 10px, flex-direction: row]
+                  icon: [color: "#E8793A", width: 26px]
+                  state: [font-size: 15px, font-weight: 600, color: "#7A8394"]
+
+          # Main Content — Back Yard
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 1
+            layout:
+              grid-template-columns: 458px 458px
+              grid-template-rows: 598px
+              gap: 24px
+            card_mod:
+              style: |
+                :host { padding: 48px 20px 48px 24px; box-sizing: border-box; height: 694px; }
+            cards:
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important;
+                      min-width: 458px;
+                      max-width: 458px;
+                      height: 598px !important;
+                      display: block;
+                    }
+                    div#root {
+                      background: rgba(255,255,255,0.97) !important;
+                      border-radius: 18px !important;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06) !important;
+                      padding: 28px !important;
+                      box-sizing: border-box !important;
+                      overflow: hidden !important;
+                      height: 598px !important;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Back Yard"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    show_name: false
+                    show_icon: false
+                    styles:
+                      card: [background: transparent, box-shadow: none, padding: 0, height: 498px, display: block]
+                      custom_fields:
+                        tiles: [display: block, width: 100%, height: 498px]
+                    custom_fields:
+                      tiles: |
+                        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:239px 239px;gap:20px;width:100%;height:498px;box-sizing:border-box;">
+                          <div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">String Lights</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:string-lights" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Sprinklers</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:sprinkler" style="color:rgba(255,255,255,0.9);--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                          <div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;box-sizing:border-box;">
+                            <div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Gate</div><div style="font-size:13px;color:#B8BEC9;">Closed</div></div>
+                            <div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:gate" style="color:#B8BEC9;--mdc-icon-size:24px;"></ha-icon></div>
+                          </div>
+                        </div>
+
+              - type: vertical-stack
+                card_mod:
+                  style: |
+                    :host {
+                      width: 458px !important;
+                      min-width: 458px;
+                      max-width: 458px;
+                      height: 598px !important;
+                      display: block;
+                    }
+                    div#root {
+                      background: rgba(255,255,255,0.97) !important;
+                      border-radius: 18px !important;
+                      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06) !important;
+                      padding: 28px !important;
+                      box-sizing: border-box !important;
+                      overflow: hidden !important;
+                      height: 598px !important;
+                    }
+                cards:
+                  - type: markdown
+                    content: "Back Camera"
+                    card_mod:
+                      style: |
+                        ha-card { background: transparent; box-shadow: none; padding: 0 0 24px 0; }
+                        ha-markdown-element p { font-size: 20px; font-weight: 400; color: #7A8394; margin: 0; }
+                  - type: custom:button-card
+                    name: Backyard
+                    icon: mdi:cctv
+                    card_mod:
+                      style: |
+                        :host { height: 498px; }
+                    styles:
+                      card: [background: "#D1D5DB", border-radius: 12px, height: 100%]
+                      icon: [color: "#9CA3AF", width: 48px]
+                      name: [color: "#9CA3AF"]
+
+          # Footer
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            view_layout:
+              grid-column: 2
+              grid-row: 2
+            layout:
+              grid-template-columns: repeat(5, auto) 1fr
+              grid-template-rows: 140px
+              align-items: center
+              justify-items: start
+              justify-content: start
+              gap: 12px
+            card_mod:
+              style: |
+                :host {
+                  padding: 0 24px;
+                  box-sizing: border-box;
+                  display: block;
+                  height: 140px;
+                }
+                div#root {
+                  background: #B8C4CC !important;
+                  box-shadow: none !important;
+                  border-radius: 0 !important;
+                  height: 140px;
+                  display: grid;
+                  align-items: center;
+                }
+            cards:
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#9B59B6;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:layers-triple" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Scenes</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lightbulb" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">Lights</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#718096;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:cog" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <span style="font-size:15px;font-weight:600;color:#7A8394;">System</span>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#E8793A;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:thermometer" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <div><div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">72°F</div><div style="font-size:12px;color:#B8BEC9;line-height:1.2;">Heat to 70°</div></div>
+                    </div>
+              - type: custom:button-card
+                show_name: false
+                show_icon: false
+                styles:
+                  card: [background: "rgba(255,255,255,0.92)", border-radius: 100px, box-shadow: "0 2px 12px rgba(0,0,0,0.08)", padding: 0, overflow: hidden, height: 56px]
+                  custom_fields:
+                    p: [display: block, height: 56px]
+                custom_fields:
+                  p: |
+                    <div style="display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;height:56px;box-sizing:border-box;white-space:nowrap;">
+                      <div style="width:36px;height:36px;min-width:36px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lock" style="color:white;--mdc-icon-size:18px;display:block;"></ha-icon></div>
+                      <div><div style="font-size:15px;font-weight:600;color:#7A8394;line-height:1.2;">Locked</div><div style="font-size:12px;color:#B8BEC9;line-height:1.2;">All Doors</div></div>
+                    </div>
+              - type: custom:button-card
+                styles:
+                  card: [background: transparent, box-shadow: none]
+
+# ── END OF FILE: ha_dashboard.yaml ──────────────────────────────

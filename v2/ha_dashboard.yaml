@@ -111,11 +111,11 @@ views:
                     - width: 100%
                     - display: block
               - type: custom:button-card
-                name: "Front Yard"
+                name: "Climate"
                 show_icon: false
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/front-yard
+                  navigation_path: /dashboard-home/climate
                 card_mod:
                   style: |
                     :host { margin: 0 !important; }
@@ -270,42 +270,12 @@ views:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
                       <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Home</div>
-                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">All Lights</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">3 on</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb-group" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Security</div><div style="font-size:13px;color:#B8BEC9;">Disarmed</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:shield-home" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Indoor Temp</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">72°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div></div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Security</div><div style="font-size:13px;color:#B8BEC9;">Disarmed</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:shield-home" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Indoor Temp</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">72°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
 
-              - type: custom:button-card
-                show_name: false
-                show_icon: false
-                styles:
-                  card:
-                    - background: "rgba(255,255,255,0.2)"
-                    - border-radius: 18px
-                    - box-shadow: "0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06)"
-                    - padding: 0
-                    - box-sizing: border-box
-                    - display: block
-                    - overflow: hidden
-                    - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 100px - 28px)
-                    - margin-top: 100px
-                    - position: relative
-                  custom_fields:
-                    content:
-                      - position: absolute
-                      - top: 0
-                      - left: 0
-                      - right: 0
-                      - bottom: 0
-                      - display: block
-                      - padding: 28px
-                      - box-sizing: border-box
-                custom_fields:
-                  content: |
-                    <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Cameras</div>
-                      <div style="display:flex;flex-direction:column;gap:16px;height:calc(100% - 48px);"><div style="flex:1;background:#D1D5DB;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><ha-icon icon="mdi:cctv" style="color:#9CA3AF;--mdc-icon-size:40px;"></ha-icon><div style="font-size:14px;color:#9CA3AF;">Front Door</div></div><div style="flex:1;background:#D1D5DB;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><ha-icon icon="mdi:cctv" style="color:#9CA3AF;--mdc-icon-size:40px;"></ha-icon><div style="font-size:14px;color:#9CA3AF;">Backyard</div></div></div>
-                    </div>
-
+              - type: camera
+                entity: camera.porch_snapshots_fluent
+                camera_view: auto
           - type: custom:button-card
             show_name: false
             show_icon: false
@@ -346,8 +316,8 @@ views:
                   return '<div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;gap:16px;padding:0 36px;box-sizing:border-box;"><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#9B59B6;"><ha-icon icon="mdi:layers-triple" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><span style="font-size:18px;font-weight:600;color:#7A8394;">Scenes</span></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#2B8FE0;"><ha-icon icon="mdi:lightbulb" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><span style="font-size:18px;font-weight:600;color:#7A8394;">Lights</span></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#718096;"><ha-icon icon="mdi:cog" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><span style="font-size:18px;font-weight:600;color:#7A8394;">System</span></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#E8793A;"><ha-icon icon="mdi:thermometer" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><div><div style="font-size:18px;font-weight:600;color:#7A8394;line-height:1.3;">72°F</div><div style="font-size:13px;color:#B8BEC9;line-height:1.3;">Heat to 70°</div></div></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#2B8FE0;"><ha-icon icon="mdi:lock" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><div><div style="font-size:18px;font-weight:600;color:#7A8394;line-height:1.3;">Locked</div><div style="font-size:13px;color:#B8BEC9;line-height:1.3;">All Doors</div></div></div>' + wp + '</div>';
                 ]]]
 
-  - title: Front Yard
-    path: front-yard
+  - title: Climate
+    path: climate
     panel: true
     background: "#e4e7e9"
     cards:
@@ -454,11 +424,11 @@ views:
                     - width: 100%
                     - display: block
               - type: custom:button-card
-                name: "Front Yard"
+                name: "Climate"
                 show_icon: false
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/front-yard
+                  navigation_path: /dashboard-home/climate
                 card_mod:
                   style: |
                     :host { margin: 0 !important; }
@@ -612,8 +582,8 @@ views:
                 custom_fields:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Front Yard</div>
-                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Porch Light</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:outdoor-lamp" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Driveway</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:car-light-dimmed" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Gate</div><div style="font-size:13px;color:#B8BEC9;">Closed</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:gate" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div></div>
+                      <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Indoor Air</div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Air Quality</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">Good</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:air-filter" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Humidity</div><div style="font-size:13px;color:#B8BEC9;">--%</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:water-percent" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Temperature</div><div style="font-size:13px;color:#B8BEC9;">--°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
 
               - type: custom:button-card
@@ -629,7 +599,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 100px - 28px)
+                    - height: calc(100vh - 56px - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -645,8 +615,8 @@ views:
                 custom_fields:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Front Camera</div>
-                      <div style="height:calc(100% - 48px);background:#D1D5DB;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><ha-icon icon="mdi:cctv" style="color:#9CA3AF;--mdc-icon-size:48px;"></ha-icon><div style="font-size:14px;color:#9CA3AF;">Front Door</div></div>
+                      <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Outdoor Air</div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Temperature</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">--°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Humidity</div><div style="font-size:13px;color:#B8BEC9;">--%</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:water-percent" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Pressure</div><div style="font-size:13px;color:#B8BEC9;">-- hPa</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:gauge" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
 
           - type: custom:button-card
@@ -692,7 +662,7 @@ views:
   - title: Kitchen
     path: kitchen
     panel: true
-    background: "#e4e7e9"
+    background: "#E4E7E9"
     cards:
       - type: custom:layout-card
         layout_type: custom:grid-layout
@@ -721,19 +691,6 @@ views:
               - type: custom:button-card
                 show_name: false
                 show_icon: false
-                card_mod:
-                  style: |
-                    :host { margin: 0 !important; }
-                styles:
-                  card:
-                    - background: transparent
-                    - box-shadow: none
-                    - height: 20px
-                    - padding: 0
-                    - margin: 0
-              - type: custom:button-card
-                show_name: false
-                show_icon: false
                 show_label: true
                 label: >
                   [[[
@@ -742,10 +699,7 @@ views:
                     var m = d.getMinutes().toString().padStart(2,'0');
                     var days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
                     var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-                    var day = days[d.getDay()];
-                    var month = months[d.getMonth()];
-                    var date = d.getDate();
-                    return '<div style="font-size:58px;font-weight:100;color:#7A8394;line-height:1;letter-spacing:-2px;font-family:Roboto,sans-serif;">' + h + ':' + m + '</div><div style="font-size:13px;color:#7A8394;margin-top:4px;">' + day + ' ' + month + ' ' + date + '</div>';
+                    return '<div style="font-size:58px;font-weight:100;color:#7A8394;line-height:1;letter-spacing:-2px;font-family:Roboto,sans-serif;">' + h + ':' + m + '</div><div style="font-size:13px;color:#7A8394;margin-top:4px;">' + days[d.getDay()] + ' ' + months[d.getMonth()] + ' ' + d.getDate() + '</div>';
                   ]]]
                 card_mod:
                   style: |
@@ -768,6 +722,19 @@ views:
                     - display: block
                     - padding: 0
               - type: custom:button-card
+                show_name: false
+                show_icon: false
+                card_mod:
+                  style: |
+                    :host { margin: 0 !important; }
+                styles:
+                  card:
+                    - background: transparent
+                    - box-shadow: none
+                    - padding: 0
+                    - height: 20px
+                    - margin: 0
+              - type: custom:button-card
                 name: "Home"
                 show_icon: false
                 tap_action:
@@ -787,7 +754,7 @@ views:
                     - padding: 26px 12px
                     - min-height: 78px
                     - justify-content: flex-start
-                    - align-items: center
+                    - align-items: flex-start
                     - margin: 0
                   name:
                     - font-size: 24px
@@ -797,11 +764,11 @@ views:
                     - width: 100%
                     - display: block
               - type: custom:button-card
-                name: "Front Yard"
+                name: "Climate"
                 show_icon: false
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/front-yard
+                  navigation_path: /dashboard-home/climate
                 card_mod:
                   style: |
                     :host { margin: 0 !important; }
@@ -816,7 +783,7 @@ views:
                     - padding: 26px 12px
                     - min-height: 78px
                     - justify-content: flex-start
-                    - align-items: center
+                    - align-items: flex-start
                     - margin: 0
                   name:
                     - font-size: 24px
@@ -845,7 +812,7 @@ views:
                     - padding: 26px 12px
                     - min-height: 78px
                     - justify-content: flex-start
-                    - align-items: center
+                    - align-items: flex-start
                     - margin: 0
                   name:
                     - font-size: 24px
@@ -874,7 +841,7 @@ views:
                     - padding: 26px 12px
                     - min-height: 78px
                     - justify-content: flex-start
-                    - align-items: center
+                    - align-items: flex-start
                     - margin: 0
                   name:
                     - font-size: 24px
@@ -903,7 +870,7 @@ views:
                     - padding: 26px 12px
                     - min-height: 78px
                     - justify-content: flex-start
-                    - align-items: center
+                    - align-items: flex-start
                     - margin: 0
                   name:
                     - font-size: 24px
@@ -921,10 +888,10 @@ views:
             layout:
               grid-template-columns: 1fr 1fr
               grid-template-rows: 1fr
-              gap: 80px
+              gap: 150px
             card_mod:
               style: |
-                :host { padding: 0 80px 0 20px; box-sizing: border-box; }
+                :host { padding: 0 60px 0 20px; box-sizing: border-box; }
             cards:
               - type: custom:button-card
                 show_name: false
@@ -939,7 +906,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 100px - 28px)
+                    - height: calc(100vh - 56px - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -958,7 +925,6 @@ views:
                       <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Kitchen</div>
                       <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Main Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Under Cabinet</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:led-strip-variant" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Exhaust Fan</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:fan" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
-
               - type: custom:button-card
                 show_name: false
                 show_icon: false
@@ -972,7 +938,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 100px - 28px)
+                    - height: calc(100vh - 56px - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -991,7 +957,6 @@ views:
                       <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Appliances</div>
                       <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Coffee Maker</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">Brewing</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:coffee-maker" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Dishwasher</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:dishwasher" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Oven</div><div style="font-size:13px;color:#B8BEC9;">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:stove" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
-
           - type: custom:button-card
             show_name: false
             show_icon: false
@@ -1029,7 +994,7 @@ views:
                   var gr = {'sunny':'linear-gradient(180deg,#1a6bb5,#74b9ff)','clear-night':'linear-gradient(180deg,#0a0a2e,#2C3E7A)','partlycloudy':'linear-gradient(180deg,#0984e3,#74b9ff)','cloudy':'linear-gradient(180deg,#636e72,#b2bec3)','rainy':'linear-gradient(180deg,#1a6bb5,#4a9eed)','pouring':'linear-gradient(180deg,#1e3799,#3d7abf)','snowy':'linear-gradient(180deg,#89b4cc,#d0e8f5)','windy':'linear-gradient(180deg,#0984e3,#00cec9)','fog':'linear-gradient(180deg,#778ca3,#b2bec3)','lightning':'linear-gradient(180deg,#e17055,#fdcb6e)','snowy-rainy':'linear-gradient(180deg,#4a9eed,#d0e8f5)','hail':'linear-gradient(180deg,#2d3436,#636e72)'};
                   var gradient = gr[state] || gr['sunny'];
                   var wp = '<div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;background:' + gradient + ';display:flex;align-items:center;justify-content:center;"><img src="' + iconSrc + '" width="40" height="40" /></div><div><div style="font-size:18px;font-weight:600;color:#7A8394;line-height:1.3;">' + temp + '</div><div style="font-size:13px;color:#B8BEC9;line-height:1.3;">' + cond + '</div></div></div>';
-                  return '<div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;gap:16px;padding:0 36px;box-sizing:border-box;"><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#9B59B6;"><ha-icon icon="mdi:layers-triple" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><span style="font-size:18px;font-weight:600;color:#7A8394;">Scenes</span></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#2B8FE0;"><ha-icon icon="mdi:lightbulb" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><span style="font-size:18px;font-weight:600;color:#7A8394;">Lights</span></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#718096;"><ha-icon icon="mdi:cog" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><span style="font-size:18px;font-weight:600;color:#7A8394;">System</span></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#E8793A;"><ha-icon icon="mdi:thermometer" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><div><div style="font-size:18px;font-weight:600;color:#7A8394;line-height:1.3;">72°F</div><div style="font-size:13px;color:#B8BEC9;line-height:1.3;">Heat to 70°</div></div></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#2B8FE0;"><ha-icon icon="mdi:lock" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><div><div style="font-size:18px;font-weight:600;color:#7A8394;line-height:1.3;">Locked</div><div style="font-size:13px;color:#B8BEC9;line-height:1.3;">All Doors</div></div></div>' + wp + '</div>';
+                  return '<div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;gap:16px;padding:0 36px;box-sizing:border-box;"><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;background:#9B59B6;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:layers-triple" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><span style="font-size:18px;font-weight:600;color:#7A8394;">Scenes</span></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lightbulb" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><span style="font-size:18px;font-weight:600;color:#7A8394;">Lights</span></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;background:#718096;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:cog" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><span style="font-size:18px;font-weight:600;color:#7A8394;">System</span></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;background:#E8793A;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:thermometer" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><div><div style="font-size:18px;font-weight:600;color:#7A8394;line-height:1.3;">72\u00b0F</div><div style="font-size:13px;color:#B8BEC9;line-height:1.3;">Heat to 70\u00b0</div></div></div><div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.5);border-radius:100px;padding:9px 35px 9px 9px;box-shadow:0 2px 16px rgba(0,0,0,0.09);white-space:nowrap;"><div style="width:62px;height:62px;min-width:62px;border-radius:50%;background:#2B8FE0;display:flex;align-items:center;justify-content:center;"><ha-icon icon="mdi:lock" style="color:white;--mdc-icon-size:30px;"></ha-icon></div><div><div style="font-size:18px;font-weight:600;color:#7A8394;line-height:1.3;">Locked</div><div style="font-size:13px;color:#B8BEC9;line-height:1.3;">All Doors</div></div></div>' + wp + '</div>';
                 ]]]
 
   - title: Living Room
@@ -1140,11 +1105,11 @@ views:
                     - width: 100%
                     - display: block
               - type: custom:button-card
-                name: "Front Yard"
+                name: "Climate"
                 show_icon: false
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/front-yard
+                  navigation_path: /dashboard-home/climate
                 card_mod:
                   style: |
                     :host { margin: 0 !important; }
@@ -1303,21 +1268,22 @@ views:
                     </div>
 
               - type: custom:button-card
+                entity: media_player.family_room
                 show_name: false
                 show_icon: false
+                show_state: false
+                tap_action:
+                  action: more-info
                 styles:
                   card:
                     - background: "rgba(255,255,255,0.2)"
                     - border-radius: 18px
                     - box-shadow: "0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06)"
                     - padding: 0
-                    - box-sizing: border-box
-                    - display: block
-                    - overflow: hidden
-                    - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 100px - 28px)
+                    - height: calc(100vh - 56px - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
+                    - overflow: hidden
                   custom_fields:
                     content:
                       - position: absolute
@@ -1330,11 +1296,35 @@ views:
                       - box-sizing: border-box
                 custom_fields:
                   content: |
-                    <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Media</div>
-                      <div style="height:calc(100% - 48px);background:#E8EAED;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;"><ha-icon icon="mdi:speaker" style="color:#B8BEC9;--mdc-icon-size:48px;"></ha-icon><div style="font-size:15px;color:#B8BEC9;">Sonos</div></div>
-                    </div>
-
+                    [[[
+                      var e = states['media_player.family_room'];
+                      if (!e) return '<div style="color:#7A8394;font-size:20px;font-weight:400;">Media</div>';
+                      var state = e.state;
+                      var title = e.attributes.media_title || '';
+                      var artist = e.attributes.media_artist || '';
+                      var album = e.attributes.media_album_name || '';
+                      var vol = e.attributes.volume_level ? Math.round(e.attributes.volume_level * 100) : 0;
+                      var isPlaying = state === 'playing';
+                      var artUrl = e.attributes.entity_picture || '';
+                      var bg = artUrl ? 'linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.65) 100%),url(' + artUrl + ') center/cover' : 'linear-gradient(180deg,#1a6bb5,#74b9ff)';
+                      var playIcon = isPlaying ? 'mdi:pause' : 'mdi:play';
+                      return '<div style="width:100%;height:100%;background:' + bg + ';border-radius:18px;display:flex;flex-direction:column;justify-content:flex-end;box-sizing:border-box;padding:24px;">'
+                        + '<div style="font-size:20px;font-weight:600;color:white;margin-bottom:4px;">' + (title || (state === 'off' ? 'Sonos' : 'Nothing Playing')) + '</div>'
+                        + (artist ? '<div style="font-size:14px;color:rgba(255,255,255,0.75);margin-bottom:20px;">' + artist + (album ? ' · ' + album : '') + '</div>' : '<div style="margin-bottom:20px;"></div>')
+                        + '<div style="display:flex;align-items:center;justify-content:space-between;">'
+                        + '<div style="display:flex;gap:12px;align-items:center;">'
+                        + '<ha-icon icon="mdi:skip-previous" style="color:rgba(255,255,255,0.8);--mdc-icon-size:28px;"></ha-icon>'
+                        + '<div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;"><ha-icon icon="' + playIcon + '" style="color:white;--mdc-icon-size:28px;"></ha-icon></div>'
+                        + '<ha-icon icon="mdi:skip-next" style="color:rgba(255,255,255,0.8);--mdc-icon-size:28px;"></ha-icon>'
+                        + '</div>'
+                        + '<div style="display:flex;gap:8px;align-items:center;">'
+                        + '<ha-icon icon="mdi:volume-minus" style="color:rgba(255,255,255,0.8);--mdc-icon-size:22px;"></ha-icon>'
+                        + '<div style="font-size:14px;color:rgba(255,255,255,0.8);min-width:32px;text-align:center;">' + vol + '%</div>'
+                        + '<ha-icon icon="mdi:volume-plus" style="color:rgba(255,255,255,0.8);--mdc-icon-size:22px;"></ha-icon>'
+                        + '</div>'
+                        + '</div>'
+                        + '</div>';
+                    ]]]
           - type: custom:button-card
             show_name: false
             show_icon: false
@@ -1483,11 +1473,11 @@ views:
                     - width: 100%
                     - display: block
               - type: custom:button-card
-                name: "Front Yard"
+                name: "Climate"
                 show_icon: false
                 tap_action:
                   action: navigate
-                  navigation_path: /dashboard-home/front-yard
+                  navigation_path: /dashboard-home/climate
                 card_mod:
                   style: |
                     :host { margin: 0 !important; }
@@ -1645,39 +1635,9 @@ views:
                       <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">String Lights</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:string-lights" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Sprinklers</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:sprinkler" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#E8EAED;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:#7A8394;margin-bottom:4px;">Gate</div><div style="font-size:13px;color:#B8BEC9;">Closed</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:gate" style="color:#B8BEC9;--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
 
-              - type: custom:button-card
-                show_name: false
-                show_icon: false
-                styles:
-                  card:
-                    - background: "rgba(255,255,255,0.2)"
-                    - border-radius: 18px
-                    - box-shadow: "0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06)"
-                    - padding: 0
-                    - box-sizing: border-box
-                    - display: block
-                    - overflow: hidden
-                    - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 100px - 28px)
-                    - margin-top: 100px
-                    - position: relative
-                  custom_fields:
-                    content:
-                      - position: absolute
-                      - top: 0
-                      - left: 0
-                      - right: 0
-                      - bottom: 0
-                      - display: block
-                      - padding: 28px
-                      - box-sizing: border-box
-                custom_fields:
-                  content: |
-                    <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:#7A8394;margin-bottom:20px;">Back Camera</div>
-                      <div style="height:calc(100% - 48px);background:#D1D5DB;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><ha-icon icon="mdi:cctv" style="color:#9CA3AF;--mdc-icon-size:48px;"></ha-icon><div style="font-size:14px;color:#9CA3AF;">Backyard</div></div>
-                    </div>
-
+              - type: camera
+                entity: camera.porch_snapshots_fluent
+                camera_view: auto
           - type: custom:button-card
             show_name: false
             show_icon: false

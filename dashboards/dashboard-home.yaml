@@ -232,8 +232,8 @@ views:
             ha-card { overflow: hidden; }
         layout:
           grid-template-columns: 210px 1fr
-          grid-template-rows: calc(100vh - 56px - 160px) 160px
-          height: calc(100vh - 56px)
+          grid-template-rows: calc(100vh - 160px) 160px
+          height: 100vh
           width: 100vw
           margin: 0
           padding: 0
@@ -249,7 +249,7 @@ views:
                 :host {
                   padding: 0 20px 28px 20px;
                   box-sizing: border-box;
-                  height: calc(100vh - 56px - 160px);
+                  height: calc(100vh - 160px);
                   overflow: hidden;
                   background: transparent;
                 }
@@ -289,7 +289,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -320,7 +320,7 @@ views:
                     - border-radius: 18px
                     - box-shadow: "0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06)"
                     - padding: 28px
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                     - overflow: hidden
@@ -342,6 +342,7 @@ views:
                       - bottom: calc(50% + 6px)
                       - border-radius: 12px
                       - overflow: hidden
+                      - box-shadow: "0 8px 24px rgba(0,0,0,0.15)"
                     cam2:
                       - position: absolute
                       - top: calc(50% + 6px)
@@ -350,6 +351,7 @@ views:
                       - bottom: 28px
                       - border-radius: 12px
                       - overflow: hidden
+                      - box-shadow: "0 8px 24px rgba(0,0,0,0.15)"
                 custom_fields:
                   cam1: |
                     [[[
@@ -359,10 +361,12 @@ views:
                       return '<img src="' + url + '" style="width:100%;height:100%;object-fit:cover;display:block;" />';
                     ]]]
                   cam2: |
-                    <div style="width:100%;height:100%;background:oklch(89% 0.016 58);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-                      <ha-icon icon="mdi:cctv" style="color:oklch(58% 0.012 50);--mdc-icon-size:36px;"></ha-icon>
-                      <div style="font-size:13px;color:oklch(58% 0.012 50);">Camera 2</div>
-                    </div>
+                    [[[
+                      var e = states['camera.front_door_snapshots_fluent'];
+                      var url = e ? e.attributes.entity_picture : null;
+                      if (!url) return '<div style="width:100%;height:100%;background:oklch(89% 0.016 58);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><ha-icon icon=&quot;mdi:cctv&quot; style=&quot;color:oklch(58% 0.012 50);--mdc-icon-size:36px;&quot;></ha-icon><div style=&quot;font-size:13px;color:oklch(58% 0.012 50);&quot;>Front Door</div></div>';
+                      return '<img src="' + url + '" style="width:100%;height:100%;object-fit:cover;display:block;" />';
+                    ]]]
           - type: custom:decluttering-card
             template: footer
             view_layout:
@@ -384,8 +388,8 @@ views:
             ha-card { overflow: hidden; }
         layout:
           grid-template-columns: 210px 1fr
-          grid-template-rows: calc(100vh - 56px - 160px) 160px
-          height: calc(100vh - 56px)
+          grid-template-rows: calc(100vh - 160px) 160px
+          height: 100vh
           width: 100vw
           margin: 0
           padding: 0
@@ -401,7 +405,7 @@ views:
                 :host {
                   padding: 0 20px 28px 20px;
                   box-sizing: border-box;
-                  height: calc(100vh - 56px - 160px);
+                  height: calc(100vh - 160px);
                   overflow: hidden;
                   background: transparent;
                 }
@@ -441,7 +445,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -473,7 +477,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -513,8 +517,8 @@ views:
             ha-card { overflow: hidden; }
         layout:
           grid-template-columns: 210px 1fr
-          grid-template-rows: calc(100vh - 56px - 160px) 160px
-          height: calc(100vh - 56px)
+          grid-template-rows: calc(100vh - 160px) 160px
+          height: 100vh
           width: 100vw
           margin: 0
           padding: 0
@@ -530,7 +534,7 @@ views:
                 :host {
                   padding: 0 20px 28px 20px;
                   box-sizing: border-box;
-                  height: calc(100vh - 56px - 160px);
+                  height: calc(100vh - 160px);
                   overflow: hidden;
                   background: transparent;
                 }
@@ -570,7 +574,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -602,7 +606,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -642,8 +646,8 @@ views:
             ha-card { overflow: hidden; }
         layout:
           grid-template-columns: 210px 1fr
-          grid-template-rows: calc(100vh - 56px - 160px) 160px
-          height: calc(100vh - 56px)
+          grid-template-rows: calc(100vh - 160px) 160px
+          height: 100vh
           width: 100vw
           margin: 0
           padding: 0
@@ -659,7 +663,7 @@ views:
                 :host {
                   padding: 0 20px 28px 20px;
                   box-sizing: border-box;
-                  height: calc(100vh - 56px - 160px);
+                  height: calc(100vh - 160px);
                   overflow: hidden;
                   background: transparent;
                 }
@@ -699,7 +703,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -731,7 +735,7 @@ views:
                     - border-radius: 18px
                     - box-shadow: "0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06)"
                     - padding: 0
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                     - overflow: hidden
@@ -795,8 +799,8 @@ views:
             ha-card { overflow: hidden; }
         layout:
           grid-template-columns: 210px 1fr
-          grid-template-rows: calc(100vh - 56px - 160px) 160px
-          height: calc(100vh - 56px)
+          grid-template-rows: calc(100vh - 160px) 160px
+          height: 100vh
           width: 100vw
           margin: 0
           padding: 0
@@ -812,7 +816,7 @@ views:
                 :host {
                   padding: 0 20px 28px 20px;
                   box-sizing: border-box;
-                  height: calc(100vh - 56px - 160px);
+                  height: calc(100vh - 160px);
                   overflow: hidden;
                   background: transparent;
                 }
@@ -852,7 +856,7 @@ views:
                     - display: block
                     - overflow: hidden
                     - align-self: stretch
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                   custom_fields:
@@ -884,7 +888,7 @@ views:
                     - border-radius: 18px
                     - box-shadow: "0 4px 32px rgba(0,0,0,0.10), 0 1px 6px rgba(0,0,0,0.06)"
                     - padding: 28px
-                    - height: calc(100vh - 56px - 160px - 144px)
+                    - height: calc(100vh - 160px - 144px)
                     - margin-top: 100px
                     - position: relative
                     - overflow: hidden

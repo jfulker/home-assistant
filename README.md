@@ -2,12 +2,13 @@
 
 My **Home Assistant** configuration files and dashboard assets for a wall-mounted iPad kiosk at the Malibu house. Stored here as a backup and reference.
 
-## Contents
+## Repository Structure
 
-- **Dashboard configs** — YAML for a 5-view kiosk-mode tablet dashboard
-- **Themes** — companion YAML theme files
-- **Weather icons** — custom icon assets
-- **Background** — dashboard background image
+- `dashboards/` — Active dashboard YAML configuration files (e.g., `dashboard-home.yaml`)
+- `reference/` — Old dashboard files, templates, and screenshots for reference
+- `www/weather_icons/` — Weather icon SVGs and instructions
+- `DESIGN.md` — Dashboard design documentation and guidelines
+- `TODO.md` — Project tasks and upcoming improvements
 
 ## Hardware
 
@@ -47,4 +48,3 @@ My **Home Assistant** configuration files and dashboard assets for a wall-mounte
 | Weather | `weather.forecast_home` | Used in footer pill |
 | Sun (night detect) | `sun.sun` | Used for partly-cloudy-night icon |
 
-Dashboard YAML files are saved as `dashboard-YYYY-MM-DD.yaml`.

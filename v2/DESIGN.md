@@ -42,19 +42,19 @@ Every view uses the same root grid:
 
 ## Color Palette
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| Page background | `#E4E7E9` | View background (deepest layer) |
-| Footer bar | `#E8ECED` | Pills footer bar |
-| Inactive tile | `#E8EAED` | Off-state tile background |
+| Token | Value | Usage |
+|-------|-------|-------|
+| Page background | `oklch(96% 0.008 60)` | View background (deepest layer) |
+| Footer bar | `rgba(255, 255, 255, 0.4)` | Pills footer bar |
+| Inactive tile | `oklch(91.5% 0.013 60)` | Off-state tile background |
 | Content card | `rgba(255,255,255,0.2)` | White cards (semi-transparent for future bg images) |
-| Nav text / labels | `#7A8394` | All UI text |
-| Muted subtext | `#B8BEC9` | Secondary text, off-state icons |
+| Nav text / labels | `oklch(20% 0.018 45)` | All UI text (espresso) |
+| Muted subtext | `oklch(40% 0.015 48)` | Secondary text, off-state icons |
 | Active blue | `#2B8FE0` | Active tiles, nav indicator, lights |
 | Accent teal | `#1AABB8` | Temperature, indoor sensors |
 | Orange | `#E8793A` | Weather icon, thermostat pill |
 | Purple | `#9B59B6` | Scenes pill |
-| Slate | `#718096` | System pill |
+| Slate | `oklch(58% 0.012 50)` | System pill |
 
 ### Weather Gradient Map
 Each condition gets a vertical gradient (`180deg`) on the weather pill circle:
@@ -149,10 +149,11 @@ Single `custom:button-card` spanning `grid-column: 1/3`. All 6 pills (Scenes, Li
 
 ## Decluttering Templates
 
-Four reusable templates defined at the top of the YAML (before `kiosk_mode`):
+Five reusable templates defined at the top of the YAML (before `kiosk_mode`):
 
 | Template | Variables | Purpose |
 |----------|-----------|---------|
+| `sidebar_menu`| `[page]_border` | Full vertical-stack nav sidebar. Active page gets blue border. |
 | `spacer` | none | 20px transparent gap before clock |
 | `clock_card` | none | Live 12-hour clock, no date |
 | `nav_item` | `name`, `path`, `border` | Single nav link with active indicator |

@@ -75,7 +75,7 @@ decluttering_templates:
           var d = new Date();
           var h = (d.getHours() % 12 || 12).toString();
           var m = d.getMinutes().toString().padStart(2,'0');
-          return '<div style="font-size:58pt;font-weight:200;color:oklch(20% 0.018 45);line-height:1;letter-spacing:-2px;font-family:Roboto,sans-serif;">' + h + ':' + m + '</div>';
+          return '<div style="font-size:58pt;font-weight:200;color:oklch(20% 0.018 220);line-height:1;letter-spacing:-2px;font-family:Roboto,sans-serif;">' + h + ':' + m + '</div>';
         ]]]
       card_mod:
         style: |
@@ -124,7 +124,7 @@ decluttering_templates:
         name:
           - font-size: 24px
           - font-weight: 400
-          - color: "oklch(20% 0.018 45)"
+          - color: "oklch(20% 0.018 220)"
           - text-align: left
           - width: 100%
           - display: block
@@ -175,7 +175,7 @@ decluttering_templates:
                   <div style="width:62px;height:62px;min-width:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:${bg};">
                     <ha-icon icon="${icon}" style="color:white;--mdc-icon-size:30px;"></ha-icon>
                   </div>
-                  ${sub ? `<div><div style="font-size:18px;font-weight:600;color:oklch(20% 0.018 45);line-height:1.3;">${label}</div><div style="font-size:13px;color:oklch(40% 0.015 48);line-height:1.3;">${sub}</div></div>` : `<span style="font-size:18px;font-weight:600;color:oklch(20% 0.018 45);">${label}</span>`}
+                  ${sub ? `<div><div style="font-size:18px;font-weight:600;color:oklch(20% 0.018 220);line-height:1.3;">${label}</div><div style="font-size:13px;color:oklch(40% 0.015 220);line-height:1.3;">${sub}</div></div>` : `<span style="font-size:18px;font-weight:600;color:oklch(20% 0.018 220);">${label}</span>`}
                 </div>
               `;
             };
@@ -186,8 +186,8 @@ decluttering_templates:
                   <img src="${iconSrc}" width="40" height="40" />
                 </div>
                 <div>
-                  <div style="font-size:18px;font-weight:600;color:oklch(20% 0.018 45);line-height:1.3;">${temp}</div>
-                  <div style="font-size:13px;color:oklch(40% 0.015 48);line-height:1.3;">${cond}</div>
+                  <div style="font-size:18px;font-weight:600;color:oklch(20% 0.018 220);line-height:1.3;">${temp}</div>
+                  <div style="font-size:13px;color:oklch(40% 0.015 220);line-height:1.3;">${cond}</div>
                 </div>
               </div>
             `;
@@ -196,7 +196,7 @@ decluttering_templates:
               <div style="position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;gap:16px;padding:0 36px;box-sizing:border-box;">
                 ${pill('#9B59B6', 'mdi:layers-triple', 'Scenes')}
                 ${pill('#2B8FE0', 'mdi:lightbulb', 'Lights')}
-                ${pill('oklch(58% 0.012 50)', 'mdi:cog', 'System')}
+                ${pill('oklch(58% 0.012 220)', 'mdi:cog', 'System')}
                 ${pill('#E8793A', 'mdi:thermometer', '72°F', 'Heat to 70°')}
                 ${pill('#2B8FE0', 'mdi:lock', 'Locked', 'All Doors')}
                 ${wp}
@@ -222,7 +222,7 @@ views:
   - title: Home
     path: home
     panel: true
-    background: "oklch(96% 0.008 60)"
+    background: "linear-gradient(180deg, oklch(97% 0.008 220) 0%, oklch(94% 0.012 220) 100%)"
     cards:
       - type: custom:layout-card
         layout_type: custom:grid-layout
@@ -305,8 +305,8 @@ views:
                 custom_fields:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 45);margin-bottom:20px;">Home</div>
-                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Security</div><div style="font-size:13px;color:oklch(40% 0.015 48);">Disarmed</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:shield-home" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Indoor Temp</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">72°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div></div>
+                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 220);margin-bottom:20px;">Home</div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Security</div><div style="font-size:13px;color:oklch(40% 0.015 220);">Disarmed</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:shield-home" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Indoor Temp</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">72°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
               - type: custom:button-card
                 name: Cameras
@@ -328,7 +328,7 @@ views:
                   name:
                     - font-size: 20px
                     - font-weight: 400
-                    - color: "oklch(20% 0.018 45)"
+                    - color: "oklch(20% 0.018 220)"
                     - text-align: left
                     - position: absolute
                     - top: 28px
@@ -357,14 +357,14 @@ views:
                     [[[
                       var e = states['camera.porch_snapshots_fluent'];
                       var url = e ? e.attributes.entity_picture : null;
-                      if (!url) return '<div style="width:100%;height:100%;background:oklch(89% 0.016 58);border-radius:12px;display:flex;align-items:center;justify-content:center;"><ha-icon icon=&quot;mdi:cctv&quot; style=&quot;color:oklch(58% 0.012 50);--mdc-icon-size:36px;&quot;></ha-icon></div>';
+                      if (!url) return '<div style="width:100%;height:100%;background:oklch(89% 0.016 220);border-radius:12px;display:flex;align-items:center;justify-content:center;"><ha-icon icon=&quot;mdi:cctv&quot; style=&quot;color:oklch(58% 0.012 220);--mdc-icon-size:36px;&quot;></ha-icon></div>';
                       return '<img src="' + url + '" style="width:100%;height:100%;object-fit:cover;display:block;" />';
                     ]]]
                   cam2: |
                     [[[
                       var e = states['camera.front_door_snapshots_fluent'];
                       var url = e ? e.attributes.entity_picture : null;
-                      if (!url) return '<div style="width:100%;height:100%;background:oklch(89% 0.016 58);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><ha-icon icon=&quot;mdi:cctv&quot; style=&quot;color:oklch(58% 0.012 50);--mdc-icon-size:36px;&quot;></ha-icon><div style=&quot;font-size:13px;color:oklch(58% 0.012 50);&quot;>Front Door</div></div>';
+                      if (!url) return '<div style="width:100%;height:100%;background:oklch(89% 0.016 220);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><ha-icon icon=&quot;mdi:cctv&quot; style=&quot;color:oklch(58% 0.012 220);--mdc-icon-size:36px;&quot;></ha-icon><div style=&quot;font-size:13px;color:oklch(58% 0.012 220);&quot;>Front Door</div></div>';
                       return '<img src="' + url + '" style="width:100%;height:100%;object-fit:cover;display:block;" />';
                     ]]]
           - type: custom:decluttering-card
@@ -378,7 +378,7 @@ views:
   - title: Climate
     path: climate
     panel: true
-    background: "oklch(96% 0.008 60)"
+    background: "linear-gradient(180deg, oklch(97% 0.008 220) 0%, oklch(94% 0.012 220) 100%)"
     cards:
       - type: custom:layout-card
         layout_type: custom:grid-layout
@@ -461,8 +461,8 @@ views:
                 custom_fields:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 45);margin-bottom:20px;">Indoor Air</div>
-                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Air Quality</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">Good</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:air-filter" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Humidity</div><div style="font-size:13px;color:oklch(40% 0.015 48);">--%</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:water-percent" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Temperature</div><div style="font-size:13px;color:oklch(40% 0.015 48);">--°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div></div>
+                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 220);margin-bottom:20px;">Indoor Air</div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Air Quality</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">Good</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:air-filter" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Humidity</div><div style="font-size:13px;color:oklch(40% 0.015 220);">--%</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:water-percent" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Temperature</div><div style="font-size:13px;color:oklch(40% 0.015 220);">--°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
               - type: custom:button-card
                 show_name: false
@@ -493,8 +493,8 @@ views:
                 custom_fields:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 45);margin-bottom:20px;">Outdoor Air</div>
-                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Temperature</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">--°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Humidity</div><div style="font-size:13px;color:oklch(40% 0.015 48);">--%</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:water-percent" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Pressure</div><div style="font-size:13px;color:oklch(40% 0.015 48);">-- hPa</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:gauge" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div></div>
+                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 220);margin-bottom:20px;">Outdoor Air</div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Temperature</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">--°F</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:thermometer" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Humidity</div><div style="font-size:13px;color:oklch(40% 0.015 220);">--%</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:water-percent" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Pressure</div><div style="font-size:13px;color:oklch(40% 0.015 220);">-- hPa</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:gauge" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
           - type: custom:decluttering-card
             template: footer
@@ -507,7 +507,7 @@ views:
   - title: Kitchen
     path: kitchen
     panel: true
-    background: "oklch(96% 0.008 60)"
+    background: "linear-gradient(180deg, oklch(97% 0.008 220) 0%, oklch(94% 0.012 220) 100%)"
     cards:
       - type: custom:layout-card
         layout_type: custom:grid-layout
@@ -590,8 +590,8 @@ views:
                 custom_fields:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 45);margin-bottom:20px;">Kitchen</div>
-                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Main Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Under Cabinet</div><div style="font-size:13px;color:oklch(40% 0.015 48);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:led-strip-variant" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Exhaust Fan</div><div style="font-size:13px;color:oklch(40% 0.015 48);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:fan" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div></div>
+                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 220);margin-bottom:20px;">Kitchen</div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Main Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Under Cabinet</div><div style="font-size:13px;color:oklch(40% 0.015 220);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:led-strip-variant" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Exhaust Fan</div><div style="font-size:13px;color:oklch(40% 0.015 220);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:fan" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
               - type: custom:button-card
                 show_name: false
@@ -622,8 +622,8 @@ views:
                 custom_fields:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 45);margin-bottom:20px;">Appliances</div>
-                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Coffee Maker</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">Brewing</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:coffee-maker" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Dishwasher</div><div style="font-size:13px;color:oklch(40% 0.015 48);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:dishwasher" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Oven</div><div style="font-size:13px;color:oklch(40% 0.015 48);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:stove" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div></div>
+                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 220);margin-bottom:20px;">Appliances</div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Coffee Maker</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">Brewing</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:coffee-maker" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Dishwasher</div><div style="font-size:13px;color:oklch(40% 0.015 220);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:dishwasher" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Oven</div><div style="font-size:13px;color:oklch(40% 0.015 220);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:stove" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
           - type: custom:decluttering-card
             template: footer
@@ -636,7 +636,7 @@ views:
   - title: Living Room
     path: living-room
     panel: true
-    background: "oklch(96% 0.008 60)"
+    background: "linear-gradient(180deg, oklch(97% 0.008 220) 0%, oklch(94% 0.012 220) 100%)"
     cards:
       - type: custom:layout-card
         layout_type: custom:grid-layout
@@ -719,8 +719,8 @@ views:
                 custom_fields:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 45);margin-bottom:20px;">Living Room</div>
-                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Main Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Ceiling Fan</div><div style="font-size:13px;color:oklch(40% 0.015 48);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:fan" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Reading Lamp</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:floor-lamp" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div></div>
+                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 220);margin-bottom:20px;">Living Room</div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Main Light</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:lightbulb" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Ceiling Fan</div><div style="font-size:13px;color:oklch(40% 0.015 220);">Off</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:fan" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Reading Lamp</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:floor-lamp" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
               - type: custom:button-card
                 entity: media_player.family_room
@@ -753,7 +753,7 @@ views:
                   content: |
                     [[[
                       var e = states['media_player.family_room'];
-                      if (!e) return '<div style="color:oklch(20% 0.018 45);font-size:20px;font-weight:400;">Media</div>';
+                      if (!e) return '<div style="color:oklch(20% 0.018 220);font-size:20px;font-weight:400;">Media</div>';
                       var state = e.state;
                       var title = e.attributes.media_title || '';
                       var artist = e.attributes.media_artist || '';
@@ -789,7 +789,7 @@ views:
   - title: Back Yard
     path: back-yard
     panel: true
-    background: "oklch(96% 0.008 60)"
+    background: "linear-gradient(180deg, oklch(97% 0.008 220) 0%, oklch(94% 0.012 220) 100%)"
     cards:
       - type: custom:layout-card
         layout_type: custom:grid-layout
@@ -872,8 +872,8 @@ views:
                 custom_fields:
                   content: |
                     <div style="width:100%;height:100%;box-sizing:border-box;">
-                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 45);margin-bottom:20px;">Back Yard</div>
-                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">String Lights</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:string-lights" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Sprinklers</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:sprinkler" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 60);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 45);margin-bottom:4px;">Gate</div><div style="font-size:13px;color:oklch(40% 0.015 48);">Closed</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:gate" style="color:oklch(40% 0.015 48);--mdc-icon-size:28px;"></ha-icon></div></div></div>
+                      <div style="font-size:20px;font-weight:400;color:oklch(20% 0.018 220);margin-bottom:20px;">Back Yard</div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:calc(100% - 48px);"><div style="grid-row:1/3;background:#2B8FE0;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">String Lights</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:string-lights" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:#1AABB8;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.12);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:white;margin-bottom:4px;">Sprinklers</div><div style="font-size:13px;color:rgba(255,255,255,0.8);">On</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:sprinkler" style="color:rgba(255,255,255,0.9);--mdc-icon-size:28px;"></ha-icon></div></div><div style="background:oklch(91.5% 0.013 220);border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.07);padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;"><div><div style="font-size:15px;font-weight:600;color:oklch(20% 0.018 220);margin-bottom:4px;">Gate</div><div style="font-size:13px;color:oklch(40% 0.015 220);">Closed</div></div><div style="display:flex;justify-content:flex-end;"><ha-icon icon="mdi:gate" style="color:oklch(40% 0.015 220);--mdc-icon-size:28px;"></ha-icon></div></div></div>
                     </div>
               - type: custom:button-card
                 entity: camera.porch_snapshots_fluent
@@ -896,7 +896,7 @@ views:
                   name:
                     - font-size: 20px
                     - font-weight: 400
-                    - color: "oklch(20% 0.018 45)"
+                    - color: "oklch(20% 0.018 220)"
                     - text-align: left
                     - position: absolute
                     - top: 28px
@@ -915,7 +915,7 @@ views:
                     [[[
                       var e = states['camera.porch_snapshots_fluent'];
                       var url = e ? e.attributes.entity_picture : null;
-                      if (!url) return '<div style="width:100%;height:100%;background:oklch(89% 0.016 58);border-radius:12px;display:flex;align-items:center;justify-content:center;"><ha-icon icon=&quot;mdi:cctv&quot; style=&quot;color:oklch(58% 0.012 50);--mdc-icon-size:40px;&quot;></ha-icon></div>';
+                      if (!url) return '<div style="width:100%;height:100%;background:oklch(89% 0.016 220);border-radius:12px;display:flex;align-items:center;justify-content:center;"><ha-icon icon=&quot;mdi:cctv&quot; style=&quot;color:oklch(58% 0.012 220);--mdc-icon-size:40px;&quot;></ha-icon></div>';
                       return '<img src="' + url + '" style="width:100%;height:100%;object-fit:cover;display:block;" />';
                     ]]]
 
